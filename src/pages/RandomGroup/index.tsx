@@ -12,13 +12,14 @@ type Group = {
 
 const RandomGroupPage = () => {
    const { register, handleSubmit } = useForm<FormInput>();
+   const [randomResult, setRandomResult] = useState<Group>({});
    const handleRandomGroup = (data: FormInput) => {
-      const groupList = data.group.split("\n");
-      const memberList = data.member.split("\n");
+      const groupList = splitStringFromText(data.group);
+      const memberList = splitStringFromText(data.member);
       setRandomResult(randomGroup(memberList, groupList));
-      console.log(randomResult);
    };
-   const [randomResult, setRandomResult] = useState<Group>({ "": [""] });
+
+   const splitStringFromText = (text: string) => text.split("\n");
 
    const shuffleArray = (array: string[]): string[] => {
       return array.sort(() => Math.random() - 0.5);
@@ -56,21 +57,19 @@ const RandomGroupPage = () => {
                   <button type="submit">Random</button>
                </form>
             </div>
-            {
-               <div className="flex flex-wrap">
-                  {Object.keys(randomResult).map((key) => {
-                     return (
-                        <div className="border border-red-500 rounded-md w-64" key={key}>
-                           <p className="flex">Group: {key}</p>
-                           Member:
-                           {randomResult[key].map((member) => (
-                              <>{member} </>
-                           ))}
-                        </div>
-                     );
-                  })}
-               </div>
-            }
+            <div className="flex flex-wrap">
+               {Object.keys(randomResult).map((key) => {
+                  return (
+                     <div className="border border-red-500 rounded-md w-64" key={key}>
+                        <p className="flex">Group: {key}</p>
+                        Member:
+                        {randomResult[key].map((member) => (
+                           <span key={member}>{member} </span>
+                        ))}
+                     </div>
+                  );
+               })}
+            </div>
          </div>
       </div>
    );
