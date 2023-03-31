@@ -1,5 +1,7 @@
+import RandomGroupPage from "./pages/RandomGroup";
+
 function App() {
-   return <></>;
+   return <RandomGroupPage />;
 }
 
 export default App;
