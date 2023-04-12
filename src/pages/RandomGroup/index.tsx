@@ -14,15 +14,35 @@ const RandomGroupPage = () => {
    };
 
    return (
-      <div className="w-screen h-screen flex justify-center items-center bg-slate-200">
-         <div className="flex flex-col">
-            <div className="bg-white p-4 w-64">
-               <span>Group Random</span>
-               <form onSubmit={handleSubmit(handleRandomGroup)}>
-                  <TextArea prop={{ ...register("member"), title: "Member" }} />
-                  <TextArea prop={{ ...register("group"), title: "Group" }} />
-                  <button type="submit">Random</button>
-               </form>
+      <div className="w-screen h-screen flex justify-center items-center bg-slate-300 select-none">
+         <div className="w-[1024px] h-[650px] flex flex-col gap-4 rounded-lg p-8 bg-white">
+            <div className="flex flex-col gap-4">
+               <span className="flex justify-between">
+                  <h1 className="text-2xl font-medium">Team Generator</h1>
+               </span>
+               <hr />
+            </div>
+            <div className="w-full h-full flex gap-14">
+               <div className="w-6/12 flex flex-col gap-8">
+                  <div className="w-full h-full flex gap-14">
+                     <form
+                        className="h-full flex flex-col gap-8"
+                        onSubmit={handleSubmit(handleRandomGroup)}
+                     >
+                        <div className="h-full flex flex-col gap-2">
+                           <h2 className="text-xl">Group Lists</h2>
+                           <TextArea prop={{ ...register("group") }} />
+                        </div>
+                        <div className="h-full flex flex-col gap-2">
+                           <h2 className="text-xl">Member</h2>
+                           <TextArea prop={{ ...register("member") }} />
+                        </div>
+                        <button className="border px-2 rounded-md" type="submit">
+                           Generate
+                        </button>
+                     </form>
+                  </div>
+               </div>
             </div>
             <div className="flex flex-wrap">
                {Object.keys(randomResult).map((key) => {
@@ -42,11 +62,10 @@ const RandomGroupPage = () => {
    );
 };
 
-const TextArea = ({ prop }: { prop: UseFormRegisterReturn & { title: string } }) => {
+const TextArea = ({ prop }: { prop: UseFormRegisterReturn }) => {
    return (
       <>
-         <h1>{prop.title}</h1>
-         <textarea {...prop} className="border"></textarea>
+         <textarea {...prop} className="h-full border rounded-md p-3 resize-none"></textarea>
       </>
    );
 };
