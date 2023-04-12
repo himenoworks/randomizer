@@ -26,7 +26,7 @@ const RandomGroupPage = () => {
                <div className="w-6/12 flex flex-col gap-8">
                   <div className="w-full h-full flex gap-14">
                      <form
-                        className="h-full flex flex-col gap-8"
+                        className="w-full h-full flex flex-col gap-8"
                         onSubmit={handleSubmit(handleRandomGroup)}
                      >
                         <div className="h-full flex flex-col gap-2">
@@ -43,19 +43,31 @@ const RandomGroupPage = () => {
                      </form>
                   </div>
                </div>
-            </div>
-            <div className="flex flex-wrap">
-               {Object.keys(randomResult).map((key) => {
-                  return (
-                     <div className="border border-red-500 rounded-md w-64" key={key}>
-                        <p className="flex">Group: {key}</p>
-                        Member:
-                        {randomResult[key].map((member) => (
-                           <span key={member}>{member} </span>
-                        ))}
+               <div className="w-6/12">
+                  <div className="h-full flex flex-col gap-2">
+                     <h2 className="text-xl">Result</h2>
+                     <div className="h-full border rounded-md p-6">
+                        <div className="grid grid-cols-2 gap-8">
+                           {Object.keys(randomResult).map((groupName, index) => {
+                              return (
+                                 <div className="flex justify-center items-start" key={index}>
+                                    <div className="w-full h-44 flex flex-col rounded-lg p-0.5 bg-orange-400">
+                                       <p className="text-lg font-medium text-white py-1 px-2">
+                                          Group : {groupName}
+                                       </p>
+                                       <div className="h-full flex flex-col gap-2 text-base font-medium bg-white rounded-md rounded-t-none p-2">
+                                          {randomResult[groupName].map((member, index) => (
+                                             <p key={index}>{member}</p>
+                                          ))}
+                                       </div>
+                                    </div>
+                                 </div>
+                              );
+                           })}
+                        </div>
                      </div>
-                  );
-               })}
+                  </div>
+               </div>
             </div>
          </div>
       </div>
