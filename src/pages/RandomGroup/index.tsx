@@ -22,7 +22,7 @@ const RandomGroupPage = () => {
                </span>
                <hr />
             </div>
-            <div className="w-full h-full flex gap-14">
+            <div className="w-full h-[calc(100%-65px)] flex gap-14">
                <div className="w-6/12 flex flex-col gap-8">
                   <div className="w-full h-full flex gap-14">
                      <form
@@ -46,7 +46,7 @@ const RandomGroupPage = () => {
                <div className="w-6/12">
                   <div className="h-full flex flex-col gap-2">
                      <h2 className="text-xl">Result</h2>
-                     <div className="h-full border rounded-md p-6">
+                     <div className="h-full border rounded-md p-6 overflow-y-scroll">
                         <div className="grid grid-cols-2 gap-8">
                            {Object.keys(randomResult).map((groupName, index) => {
                               return (
