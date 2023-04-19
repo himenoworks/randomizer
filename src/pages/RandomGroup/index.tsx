@@ -55,7 +55,7 @@ const RandomGroupPage = () => {
                                        <p className="text-lg font-medium text-white py-1 px-2">
                                           Group : {groupName}
                                        </p>
-                                       <div className="h-full flex flex-col gap-2 text-base font-medium bg-white rounded-md rounded-t-none p-2">
+                                       <div className="h-full flex flex-col gap-2 text-base font-medium bg-white rounded-md rounded-t-none p-2 overflow-y-scroll">
                                           {randomResult[groupName].map((member, index) => (
                                              <p key={index}>{member}</p>
                                           ))}
