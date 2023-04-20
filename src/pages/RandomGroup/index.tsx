@@ -14,8 +14,8 @@ const RandomGroupPage = () => {
    };
 
    return (
-      <div className="w-screen h-screen flex justify-center items-center bg-slate-300 select-none">
-         <div className="w-[1024px] h-[650px] flex flex-col gap-4 rounded-lg p-8 bg-white">
+      <div className="w-screen h-screen flex justify-center items-center select-none">
+         <div className="w-[1024px] h-[650px] flex flex-col gap-4 rounded-2xl p-8 bg-white shadow-[0_0_45px_0_rgba(0,0,0,0.1)]">
             <div className="flex flex-col gap-4">
                <div className="flex justify-between">
                   <span className="flex justify-between">
