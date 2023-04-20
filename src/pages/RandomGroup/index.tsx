@@ -54,8 +54,8 @@ const RandomGroupPage = () => {
                            {Object.keys(randomResult).map((groupName, index) => {
                               return (
                                  <div className="flex justify-center items-start" key={index}>
-                                    <div className="w-full h-44 flex flex-col rounded-lg p-0.5 bg-orange-400">
-                                       <p className="text-lg font-medium text-white py-1 px-2">
+                                    <div className="w-full h-44 flex flex-col rounded-lg p-0.5 bg-gray-200">
+                                       <p className="text-lg font-medium text-black py-1 px-2">
                                           Group : {groupName}
                                        </p>
                                        <div className="h-full flex flex-col gap-2 text-base font-medium bg-white rounded-md rounded-t-none p-2 overflow-y-scroll">
