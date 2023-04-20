@@ -17,15 +17,21 @@ const RandomGroupPage = () => {
       <div className="w-screen h-screen flex justify-center items-center bg-slate-300 select-none">
          <div className="w-[1024px] h-[650px] flex flex-col gap-4 rounded-lg p-8 bg-white">
             <div className="flex flex-col gap-4">
-               <span className="flex justify-between">
-                  <h1 className="text-2xl font-medium">Team Generator</h1>
-               </span>
+               <div className="flex justify-between">
+                  <span className="flex justify-between">
+                     <h1 className="text-2xl font-medium">Team Generator</h1>
+                  </span>
+                  <button className="border px-2 rounded-md" form="group-form" type="submit">
+                     Generate
+                  </button>
+               </div>
                <hr />
             </div>
             <div className="w-full h-[calc(100%-65px)] flex gap-14">
                <div className="w-6/12 flex flex-col gap-8">
                   <div className="w-full h-full flex gap-14">
                      <form
+                        id="group-form"
                         className="w-full h-full flex flex-col gap-8"
                         onSubmit={handleSubmit(handleRandomGroup)}
                      >
@@ -37,9 +43,6 @@ const RandomGroupPage = () => {
                            <h2 className="text-xl">Member</h2>
                            <TextArea prop={{ ...register("member") }} />
                         </div>
-                        <button className="border px-2 rounded-md" type="submit">
-                           Generate
-                        </button>
                      </form>
                   </div>
                </div>
