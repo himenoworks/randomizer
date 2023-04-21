@@ -4,7 +4,7 @@ const FooterSection = () => {
    const getCurrentYear = new Date().getFullYear();
 
    return (
-      <div className="h-full flex items-center justify-between text-xs text-white tracking-[2px]">
+      <div className="h-full flex items-center justify-between text-xs text-primary tracking-[2px]">
          <div className="h-full flex items-center">
             <p>© {getCurrentYear} HIMENOWORKS, All Rights Reserved</p>
          </div>
