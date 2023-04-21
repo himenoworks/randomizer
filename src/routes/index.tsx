@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, Outlet, RouterProvider } from "react-rou
 import LayoutWrapper from "../layout";
 //Pages
 import RandomGroupPage from "../pages/RandomGroup";
+import PageNotFound from "../pages/404";
 
 const router = createBrowserRouter([
    {
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
             element: <RandomGroupPage />,
          },
       ],
+   },
+   {
+      path: "/randomizer/404-page-not-found",
+      element: <PageNotFound />,
+   },
+   {
+      path: "*",
+      element: <Navigate to="/randomizer/404-page-not-found" replace />,
    },
 ]);
 
