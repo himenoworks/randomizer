@@ -17,12 +17,27 @@ const RandomGroupPage = () => {
       <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary shadow-[0_0_45px_0_rgba(0,0,0,0.1)]">
          <div className="flex flex-col gap-4">
             <div className="flex justify-between">
-               <span className="flex justify-between">
+               <span className="flex justify-between items-center">
                   <h1 className="text-2xl font-medium">Team Generator</h1>
                </span>
-               <button className="border px-2 rounded-md" form="group-form" type="submit">
-                  Generate
-               </button>
+               <span className="flex gap-3">
+                  <button
+                     className="flex items-center gap-2 border py-1 px-2 rounded-md"
+                     form="group-form"
+                     type="button"
+                  >
+                     <i className="fa-solid fa-trash-can text-sm mt-0.5"></i>
+                     Discard
+                  </button>
+                  <button
+                     className="flex items-center gap-2 border py-1 px-2 rounded-md"
+                     form="group-form"
+                     type="submit"
+                  >
+                     <i className="fa-solid fa-shuffle text-sm mt-0.5"></i>
+                     Generate
+                  </button>
+               </span>
             </div>
             <hr />
          </div>
