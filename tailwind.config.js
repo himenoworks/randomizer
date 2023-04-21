@@ -6,7 +6,17 @@ module.exports = {
          Barlow: ["Barlow"],
          Kanit: ["Kanit"],
       },
-      extend: {},
+      extend: {
+         fontFamily: {},
+         textColor: {
+            primary: "#FFFFFF",
+            secondary: "#7D8590",
+         },
+         backgroundColor: {
+            primary: "#0D1117",
+            secondary: "#161B22",
+         },
+      },
    },
    plugins: [],
 };
