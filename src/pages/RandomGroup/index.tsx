@@ -14,7 +14,7 @@ const RandomGroupPage = () => {
    };
 
    return (
-      <div className="w-[1024px] h-[550px] flex flex-col gap-4 rounded-2xl p-8 bg-white shadow-[0_0_45px_0_rgba(0,0,0,0.1)]">
+      <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary shadow-[0_0_45px_0_rgba(0,0,0,0.1)]">
          <div className="flex flex-col gap-4">
             <div className="flex justify-between">
                <span className="flex justify-between">
@@ -78,7 +78,10 @@ const RandomGroupPage = () => {
 const TextArea = ({ prop }: { prop: UseFormRegisterReturn }) => {
    return (
       <>
-         <textarea {...prop} className="h-full border rounded-md p-3 resize-none"></textarea>
+         <textarea
+            {...prop}
+            className="h-full bg-transparent border rounded-md p-3 resize-none"
+         ></textarea>
       </>
    );
 };
