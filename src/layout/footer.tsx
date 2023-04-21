@@ -6,7 +6,7 @@ const FooterSection = () => {
    return (
       <div className="h-full flex items-center justify-between text-xs text-white tracking-[2px]">
          <div className="h-full flex items-center">
-            <p>© {getCurrentYear} HIMENOWORKS</p>
+            <p>© {getCurrentYear} HIMENOWORKS, All Rights Reserved</p>
          </div>
          <div className="h-full flex items-center gap-4">
             <Link
