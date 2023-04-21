@@ -1,7 +1,8 @@
-import RandomGroupPage from "./pages/RandomGroup";
+import { FC } from "react";
+import ApplicationRoute from "./routes";
 
-function App() {
-   return <RandomGroupPage />;
-}
+const App: FC = () => {
+   return <ApplicationRoute />;
+};
 
 export default App;
