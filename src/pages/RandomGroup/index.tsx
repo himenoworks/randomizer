@@ -14,32 +14,32 @@ const RandomGroupPage = () => {
    };
 
    return (
-      <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary shadow-[0_0_45px_0_rgba(0,0,0,0.1)]">
+      <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary">
          <div className="flex flex-col gap-4">
             <div className="flex justify-between">
                <span className="flex justify-between items-center">
-                  <h1 className="text-2xl font-medium">Team Generator</h1>
+                  <h1 className="text-2xl font-medium">Group Generator</h1>
                </span>
                <span className="flex gap-3">
                   <button
-                     className="flex items-center gap-2 border py-1 px-2 rounded-md"
+                     className="flex items-center gap-2 border border-chinese-silver py-1 px-2 rounded-md"
                      form="group-form"
                      type="button"
                   >
-                     <i className="fa-solid fa-trash-can text-sm mt-0.5"></i>
+                     <i className="fa-solid fa-trash-can"></i>
                      Discard
                   </button>
                   <button
-                     className="flex items-center gap-2 border py-1 px-2 rounded-md"
+                     className="flex items-center gap-2 border border-chinese-silver py-1 px-2 rounded-md"
                      form="group-form"
                      type="submit"
                   >
-                     <i className="fa-solid fa-shuffle text-sm mt-0.5"></i>
+                     <i className="fa-solid fa-shuffle"></i>
                      Generate
                   </button>
                </span>
             </div>
-            <hr />
+            <hr className="border-lightgray" />
          </div>
          <div className="w-full h-[calc(100%-65px)] flex gap-14">
             <div className="w-6/12 flex flex-col gap-8">
@@ -50,11 +50,15 @@ const RandomGroupPage = () => {
                      onSubmit={handleSubmit(handleRandomGroup)}
                   >
                      <div className="h-full flex flex-col gap-2">
-                        <h2 className="text-xl">Group Lists</h2>
+                        <h2 className="flex items-center gap-2 text-xl">
+                           <i className="fa-solid fa-user-group"></i>Group
+                        </h2>
                         <TextArea prop={{ ...register("group") }} />
                      </div>
                      <div className="h-full flex flex-col gap-2">
-                        <h2 className="text-xl">Member</h2>
+                        <h2 className="flex items-center gap-2 text-xl">
+                           <i className="fa-solid fa-user"></i>Member
+                        </h2>
                         <TextArea prop={{ ...register("member") }} />
                      </div>
                   </form>
@@ -63,18 +67,22 @@ const RandomGroupPage = () => {
             <div className="w-6/12">
                <div className="h-full flex flex-col gap-2">
                   <h2 className="text-xl">Result</h2>
-                  <div className="h-full border rounded-md p-6 overflow-y-scroll">
+                  <div className="h-full border border-chinese-silver rounded-md p-6 overflow-y-scroll">
                      <div className="grid grid-cols-2 gap-8">
                         {Object.keys(randomResult).map((groupName, index) => {
                            return (
                               <div className="flex justify-center items-start" key={index}>
-                                 <div className="w-full h-44 flex flex-col rounded-2xl p-0.5 bg-gray-200">
-                                    <p className="text-lg font-medium text-black py-1 px-3">
+                                 <div className="w-full h-48 flex flex-col rounded-2xl p-0.5 text-primary bg-secondary">
+                                    <p className="flex items-center gap-2 text-lg font-mediumpy-1 py-1.5 px-3">
+                                       <i className="fa-solid fa-user-group"></i>
                                        Group : {groupName}
                                     </p>
-                                    <div className="h-full flex flex-col gap-2 text-base font-medium bg-white rounded-[14px] rounded-t-none p-2 px-3 overflow-y-scroll">
+                                    <div className="h-full flex flex-col gap-2 text-base font-medium bg-primary rounded-[14px] rounded-t-none p-2 px-3 overflow-y-scroll">
                                        {randomResult[groupName].map((member, index) => (
-                                          <p key={index}>{member}</p>
+                                          <p className="flex items-center gap-3" key={index}>
+                                             <i className="fa-solid fa-user"></i>
+                                             {member}
+                                          </p>
                                        ))}
                                     </div>
                                  </div>
@@ -95,7 +103,7 @@ const TextArea = ({ prop }: { prop: UseFormRegisterReturn }) => {
       <>
          <textarea
             {...prop}
-            className="h-full bg-transparent border rounded-md p-3 resize-none"
+            className="h-full bg-transparent border-2 border-chinese-silver rounded-md p-3 resize-none"
          ></textarea>
       </>
    );
