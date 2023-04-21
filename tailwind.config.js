@@ -7,14 +7,17 @@ module.exports = {
          Kanit: ["Kanit"],
       },
       extend: {
-         fontFamily: {},
+         colors: {
+            lightgray: "#D3D3D3",
+            "chinese-silver": "#CCCCCC",
+         },
          textColor: {
-            primary: "#E6EDF3",
+            primary: "#404040",
             secondary: "#7D8590",
          },
          backgroundColor: {
-            primary: "#0D1117",
-            secondary: "#161B22",
+            primary: "#EBEBEB",
+            secondary: "#C9C9C9",
          },
       },
    },
