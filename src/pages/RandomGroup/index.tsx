@@ -2,11 +2,6 @@ import { useState } from "react";
 import InputChip, { Chip } from "../../components/Input/InputChip";
 import { randomGroup } from "../../helper/random";
 
-type FormInput = {
-   member: string;
-   group: string;
-};
-
 export type Group = {
    [key: string]: string[];
 };
