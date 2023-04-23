@@ -71,6 +71,33 @@ const RandomGroupPage = () => {
                Discard
             </button>
          </div>
+         <div className="h-full flex flex-col gap-2">
+            <h2 className="text-xl">Result</h2>
+            <div className="h-full border border-chinese-silver rounded-md p-6 overflow-y-scroll">
+               <div className="grid grid-cols-2 gap-8">
+                  {Object.keys(randomResult).map((groupName, index) => {
+                     return (
+                        <div className="flex justify-center items-start" key={index}>
+                           <div className="w-full h-48 flex flex-col rounded-2xl p-0.5 text-primary bg-secondary">
+                              <p className="flex items-center gap-2 text-lg font-mediumpy-1 py-1.5 px-3">
+                                 <i className="fa-solid fa-user-group"></i>
+                                 Group : {groupName}
+                              </p>
+                              <div className="h-full flex flex-col gap-2 text-base font-medium bg-primary rounded-[14px] rounded-t-none p-2 px-3 overflow-y-scroll">
+                                 {randomResult[groupName].map((member, index) => (
+                                    <p className="flex items-center gap-3" key={index}>
+                                       <i className="fa-solid fa-user"></i>
+                                       {member}
+                                    </p>
+                                 ))}
+                              </div>
+                           </div>
+                        </div>
+                     );
+                  })}
+               </div>
+            </div>
+         </div>
       </div>
    );
 };
