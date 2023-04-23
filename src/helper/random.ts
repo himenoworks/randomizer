@@ -1,4 +1,4 @@
-import { Group } from "../interface/form";
+import { Group } from "../pages/RandomGroup";
 
 const shuffleArray = (array: string[]): string[] => {
    return array.sort(() => Math.random() - 0.5);
