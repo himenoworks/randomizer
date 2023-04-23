@@ -1,5 +1,6 @@
 import { useState } from "react";
 import InputChip, { Chip } from "../../components/Input/InputChip";
+import { randomGroup } from "../../helper/random";
 
 type FormInput = {
    member: string;
@@ -14,6 +15,13 @@ const RandomGroupPage = () => {
    const [randomResult, setRandomResult] = useState<Group>({});
    const [members, setMembers] = useState<Chip[]>([]);
    const [groups, setGroups] = useState<Chip[]>([]);
+
+   const handleGenerate = () => {
+      const groupNames = groups.map((group) => group.label);
+      const memberNames = members.map((member) => member.label);
+      setRandomResult(randomGroup(memberNames, groupNames));
+   };
+
    return (
       <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary">
          <div className="flex flex-col gap-4">
@@ -46,6 +54,7 @@ const RandomGroupPage = () => {
                className="flex items-center gap-2 border border-chinese-silver py-1 px-2 rounded-md"
                form="group-form"
                type="submit"
+               onClick={handleGenerate}
             >
                <i className="fa-solid fa-shuffle"></i>
                Generate
