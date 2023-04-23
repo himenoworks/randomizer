@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InputChip from "../../components/Input/InputChip";
+import InputChip, { Chip } from "../../components/Input/InputChip";
 
 type FormInput = {
    member: string;
@@ -12,7 +12,8 @@ export type Group = {
 
 const RandomGroupPage = () => {
    const [randomResult, setRandomResult] = useState<Group>({});
-
+   const [members, setMembers] = useState<Chip[]>([]);
+   const [groups, setGroups] = useState<Chip[]>([]);
    return (
       <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary">
          <div className="flex flex-col gap-4">
@@ -28,7 +29,7 @@ const RandomGroupPage = () => {
                   <i className="fa-solid fa-user-group"></i>Group
                </h2>
                <div className="h-[296px] border-2 border-chinese-silver rounded-md p-3 overflow-y-auto">
-                  <InputChip />
+                  <InputChip addChips={setGroups} />
                </div>
             </div>
             <div className="w-full h-full flex flex-col gap-2">
@@ -36,7 +37,7 @@ const RandomGroupPage = () => {
                   <i className="fa-solid fa-user"></i>Member
                </h2>
                <div className="h-[296px] border-2 border-chinese-silver rounded-md p-3 overflow-y-auto">
-                  <InputChip />
+                  <InputChip addChips={setMembers} />
                </div>
             </div>
          </div>

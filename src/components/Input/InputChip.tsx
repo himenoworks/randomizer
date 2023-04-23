@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-interface Chip {
+export interface Chip {
    id: number;
    label: string;
 }
 
-const InputChip: React.FC = () => {
+type ChipsProps = {
+   addChips: (values: Chip[]) => void;
+};
+
+const InputChip = ({ addChips }: ChipsProps) => {
    const [chips, setChips] = useState<Chip[]>([]);
    const [inputValue, setInputValue] = useState("");
 
@@ -28,6 +32,10 @@ const InputChip: React.FC = () => {
       const updatedChips = chips.filter((chip) => chip.id !== id);
       setChips(updatedChips);
    };
+
+   useEffect(() => {
+      addChips(chips);
+   }, [addChips, chips]);
 
    return (
       <div className="flex flex-wrap gap-3">
