@@ -8,9 +8,9 @@ const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
    return (
       <dialog
          open={isOpen}
-         className={`absolute z-50 top-0 left-0 w-screen h-screen p-0 backdrop:bg-opacity-50 open:animate-fade-in backdrop-blur-sm bg-black/30`}
+         className="absolute z-50 top-0 left-0 w-screen h-screen p-0 backdrop:bg-opacity-50 backdrop-blur-[2px] bg-black/20"
       >
-         <div className="flex items-center justify-center h-full">{children}</div>
+         <div className="w-full h-full flex items-center justify-center">{children}</div>
       </dialog>
    );
 };
