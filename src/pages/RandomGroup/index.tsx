@@ -20,15 +20,14 @@ const RandomGroupPage = () => {
       setOpen(true);
    };
 
-   const onClick = () => {
+   const onClose = () => {
       setOpen(!open);
    };
 
    return (
       <>
          <Dialog isOpen={open} onClose={() => setOpen(!open)}>
-            <RandomResult randomResult={randomResult} />
-            <button onClick={onClick}>X</button>
+            <RandomResult randomResult={randomResult} onClick={onClose} />
          </Dialog>
          <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary">
             <div className="flex flex-col gap-4">
@@ -59,8 +58,6 @@ const RandomGroupPage = () => {
             <div className="flex justify-center gap-3 mt-7">
                <button
                   className="flex items-center gap-2 border border-chinese-silver py-1 px-2 rounded-md"
-                  form="group-form"
-                  type="submit"
                   onClick={handleGenerate}
                >
                   <i className="fa-solid fa-shuffle"></i>
@@ -90,12 +87,20 @@ const RandomGroupPage = () => {
 
 export default RandomGroupPage;
 
-const RandomResult = ({ randomResult }: { randomResult: Group }) => {
+const RandomResult = ({ randomResult, onClick }: { randomResult: Group; onClick: () => void }) => {
    return (
-      <div className="h-full flex flex-col gap-2">
-         <h2 className="text-xl">Result</h2>
-         <div className="h-full border border-chinese-silver rounded-md p-6 overflow-y-scroll">
-            <div className="grid grid-cols-2 gap-8">
+      <div className="w-[700px] h-[500px] flex flex-col gap-4 p-6 rounded-xl bg-white">
+         <div className="flex flex-col gap-4">
+            <span className="flex justify-between items-center">
+               <h1 className="text-xl font-medium">Result</h1>
+               <button className="flex justify-center items-center" onClick={onClick}>
+                  <i className="fa-solid fa-xmark text-lg"></i>
+               </button>
+            </span>
+            <hr className="border-lightgray" />
+         </div>
+         <div className="w-full h-full rounded-md overflow-y-scroll">
+            <div className="grid grid-cols-3 gap-8">
                {Object.keys(randomResult).map((groupName, index) => {
                   return (
                      <div className="flex justify-center items-start" key={index}>
@@ -117,6 +122,19 @@ const RandomResult = ({ randomResult }: { randomResult: Group }) => {
                   );
                })}
             </div>
+         </div>
+         <div className="flex items-center justify-center gap-3">
+            <button className="flex items-center gap-2 border border-chinese-silver py-1 px-2 rounded-md">
+               <i className="fa-solid fa-rotate-right"></i>
+               Generate
+            </button>
+            <button
+               className="flex items-center gap-2 border border-chinese-silver py-1 px-2 rounded-md"
+               onClick={onClick}
+            >
+               <i className="fa-solid fa-pen"></i>
+               Edit
+            </button>
          </div>
       </div>
    );
