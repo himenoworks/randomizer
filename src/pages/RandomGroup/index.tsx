@@ -42,7 +42,7 @@ const RandomGroupPage = () => {
                   <h2 className="flex items-center gap-2 text-xl">
                      <i className="fa-solid fa-user-group"></i>Group
                   </h2>
-                  <div className="h-[296px] border-2 border-chinese-silver rounded-md p-3 overflow-y-auto">
+                  <div className="h-[296px] border-2 border-chinese-silver rounded-lg p-3 overflow-y-auto">
                      <InputChip addChips={setGroups} />
                   </div>
                </div>
@@ -50,7 +50,7 @@ const RandomGroupPage = () => {
                   <h2 className="flex items-center gap-2 text-xl">
                      <i className="fa-solid fa-user"></i>Member
                   </h2>
-                  <div className="h-[296px] border-2 border-chinese-silver rounded-md p-3 overflow-y-auto">
+                  <div className="h-[296px] border-2 border-chinese-silver rounded-lg p-3 overflow-y-auto">
                      <InputChip addChips={setMembers} />
                   </div>
                </div>
@@ -89,7 +89,7 @@ export default RandomGroupPage;
 
 const RandomResult = ({ randomResult, onClick }: { randomResult: Group; onClick: () => void }) => {
    return (
-      <div className="w-[700px] h-[500px] flex flex-col gap-4 p-6 rounded-xl bg-white">
+      <div className="w-[820px] h-[578px] flex flex-col gap-4 py-6 px-8 rounded-xl bg-white">
          <div className="flex flex-col gap-4">
             <span className="flex justify-between items-center">
                <h1 className="text-xl font-medium">Result</h1>
@@ -104,10 +104,10 @@ const RandomResult = ({ randomResult, onClick }: { randomResult: Group; onClick:
                {Object.keys(randomResult).map((groupName, index) => {
                   return (
                      <div className="flex justify-center items-start" key={index}>
-                        <div className="w-full h-48 flex flex-col rounded-2xl p-0.5 text-primary bg-secondary">
-                           <p className="flex items-center gap-2 text-lg font-mediumpy-1 py-1.5 px-3">
+                        <div className="w-full h-48 flex flex-col rounded-2xl p-0.5 text-primary capitalize bg-secondary">
+                           <p className="flex items-center gap-2 text-lg font-semibold py-1.5 px-3">
                               <i className="fa-solid fa-user-group"></i>
-                              Group : {groupName}
+                              {groupName}
                            </p>
                            <div className="h-full flex flex-col gap-2 text-base font-medium bg-primary rounded-[14px] rounded-t-none p-2 px-3 overflow-y-scroll">
                               {randomResult[groupName].map((member, index) => (
