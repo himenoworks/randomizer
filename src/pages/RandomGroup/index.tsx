@@ -25,6 +25,8 @@ const RandomGroupPage = () => {
       setOpen(!open);
    };
 
+   const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
+
    return (
       <>
          <Dialog isOpen={open} onClose={() => setOpen(!open)}>
@@ -43,16 +45,22 @@ const RandomGroupPage = () => {
                   <h2 className="flex items-center gap-2 text-xl">
                      <i className="fa-solid fa-user-group"></i>Group
                   </h2>
-                  <div className="h-[296px] border-2 border-chinese-silver rounded-lg p-3 overflow-y-auto">
-                     <InputChip addChips={setGroups} />
+                  <div
+                     className="h-[296px] border-2 border-chinese-silver rounded-lg p-3 overflow-y-auto"
+                     onClick={() => onFocus("input-group")}
+                  >
+                     <InputChip elementId="input-group" addChips={setGroups} />
                   </div>
                </div>
                <div className="w-full h-full flex flex-col gap-2">
                   <h2 className="flex items-center gap-2 text-xl">
                      <i className="fa-solid fa-user"></i>Member
                   </h2>
-                  <div className="h-[296px] border-2 border-chinese-silver rounded-lg p-3 overflow-y-auto">
-                     <InputChip addChips={setMembers} />
+                  <div
+                     className="h-[296px] border-2 border-chinese-silver rounded-lg p-3 overflow-y-auto"
+                     onClick={() => onFocus("input-member")}
+                  >
+                     <InputChip elementId="input-member" addChips={setMembers} />
                   </div>
                </div>
             </div>

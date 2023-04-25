@@ -7,9 +7,10 @@ export interface Chip {
 
 type ChipsProps = {
    addChips: (values: Chip[]) => void;
+   elementId: string;
 };
 
-const InputChip = ({ addChips }: ChipsProps) => {
+const InputChip = ({ addChips, elementId }: ChipsProps) => {
    const [chips, setChips] = useState<Chip[]>([]);
    const [inputValue, setInputValue] = useState("");
 
@@ -51,6 +52,7 @@ const InputChip = ({ addChips }: ChipsProps) => {
             </span>
          ))}
          <input
+            id={elementId}
             className="h-7 bg-transparent focus:outline-none"
             type="text"
             value={inputValue}
