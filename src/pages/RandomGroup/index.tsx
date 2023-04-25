@@ -21,9 +21,8 @@ const RandomGroupPage = () => {
       setOpen(true);
    };
 
-   const onClose = () => {
-      setOpen(!open);
-   };
+   const onClose = () => setOpen(!open);
+   const onView = () => setOpen(true);
 
    const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
 
@@ -66,7 +65,7 @@ const RandomGroupPage = () => {
             </div>
             <div className="flex justify-center gap-3 mt-7">
                <BaseButton icon="fa-solid fa-shuffle" label="Generate" onClick={handleGenerate} />
-               <BaseButton icon="fa-solid fa-eye" label="View Result" />
+               <BaseButton icon="fa-solid fa-eye" label="View Result" onClick={onView} />
                <BaseButton icon="fa-solid fa-trash-can" label="Discard" />
             </div>
          </div>
