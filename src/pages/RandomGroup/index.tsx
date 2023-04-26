@@ -28,13 +28,13 @@ const RandomGroupPage = () => {
       setIsClear(true);
       setTimeout(() => setIsClear(false), 100);
    };
-   const onClose = () => setOpen(!open);
+   const onClose = () => setOpen(false);
    const onView = () => setOpen(true);
    const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
 
    return (
       <>
-         <Dialog isOpen={open} onClose={() => setOpen(!open)}>
+         <Dialog isOpen={open} onClose={onClose}>
             <RandomResult randomResult={randomResult} onClose={onClose} onRandom={handleGenerate} />
          </Dialog>
          <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary">
