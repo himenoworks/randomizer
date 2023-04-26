@@ -8,9 +8,10 @@ export interface Chip {
 type ChipsProps = {
    addChips: (values: Chip[]) => void;
    elementId: string;
+   isClear?: boolean;
 };
 
-const InputChip = ({ addChips, elementId }: ChipsProps) => {
+const InputChip = ({ addChips, elementId, isClear }: ChipsProps) => {
    const [chips, setChips] = useState<Chip[]>([]);
    const [inputValue, setInputValue] = useState("");
 
@@ -37,6 +38,13 @@ const InputChip = ({ addChips, elementId }: ChipsProps) => {
    useEffect(() => {
       addChips(chips);
    }, [addChips, chips]);
+
+   useEffect(() => {
+      if (isClear) {
+         setChips([]);
+         setInputValue("");
+      }
+   }, [isClear]);
 
    return (
       <div className="flex flex-wrap gap-3">

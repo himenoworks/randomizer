@@ -1,8 +1,8 @@
 import { useState } from "react";
+import BaseButton from "../../components/Button/BaseButton";
 import Dialog from "../../components/Dialog/Dialog";
 import InputChip, { Chip } from "../../components/Input/InputChip";
 import { randomGroup } from "../../helper/random";
-import BaseButton from "../../components/Button/BaseButton";
 
 export type Group = {
    [key: string]: string[];
@@ -13,6 +13,7 @@ const RandomGroupPage = () => {
    const [members, setMembers] = useState<Chip[]>([]);
    const [groups, setGroups] = useState<Chip[]>([]);
    const [open, setOpen] = useState<boolean>(false);
+   const [isClear, setIsClear] = useState<boolean>(false);
 
    const handleGenerate = () => {
       const groupNames = groups.map((group) => group.label);
@@ -20,10 +21,15 @@ const RandomGroupPage = () => {
       setRandomResult(randomGroup(memberNames, groupNames));
       setOpen(true);
    };
-
+   const handleDiscard = () => {
+      setRandomResult({});
+      setMembers([]);
+      setGroups([]);
+      setIsClear(true);
+      setTimeout(() => setIsClear(false), 100);
+   };
    const onClose = () => setOpen(!open);
    const onView = () => setOpen(true);
-
    const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
 
    return (
@@ -48,7 +54,7 @@ const RandomGroupPage = () => {
                      className="h-[296px] border-2 border-chinese-silver rounded-lg p-3 overflow-y-auto"
                      onClick={() => onFocus("input-group")}
                   >
-                     <InputChip elementId="input-group" addChips={setGroups} />
+                     <InputChip elementId="input-group" addChips={setGroups} isClear={isClear} />
                   </div>
                </div>
                <div className="w-full h-full flex flex-col gap-2">
@@ -59,14 +65,14 @@ const RandomGroupPage = () => {
                      className="h-[296px] border-2 border-chinese-silver rounded-lg p-3 overflow-y-auto"
                      onClick={() => onFocus("input-member")}
                   >
-                     <InputChip elementId="input-member" addChips={setMembers} />
+                     <InputChip elementId="input-member" addChips={setMembers} isClear={isClear} />
                   </div>
                </div>
             </div>
             <div className="flex justify-center gap-3 mt-7">
                <BaseButton icon="fa-solid fa-shuffle" label="Generate" onClick={handleGenerate} />
                <BaseButton icon="fa-solid fa-eye" label="View Result" onClick={onView} />
-               <BaseButton icon="fa-solid fa-trash-can" label="Discard" />
+               <BaseButton icon="fa-solid fa-trash-can" label="Discard" onClick={handleDiscard} />
             </div>
          </div>
       </>
