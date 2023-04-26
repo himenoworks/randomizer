@@ -14,7 +14,6 @@ const RandomGroupPage = () => {
    const [groups, setGroups] = useState<Chip[]>([]);
    const [open, setOpen] = useState<boolean>(false);
    const [isClear, setIsClear] = useState<boolean>(false);
-
    const handleGenerate = () => {
       const groupNames = groups.map((group) => group.label);
       const memberNames = members.map((member) => member.label);
@@ -28,6 +27,10 @@ const RandomGroupPage = () => {
       setIsClear(true);
       setTimeout(() => setIsClear(false), 100);
    };
+   const handleEdit = () => {
+      onClose();
+      onFocus("input-group");
+   };
    const onClose = () => setOpen(false);
    const onView = () => setOpen(true);
    const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
@@ -35,7 +38,12 @@ const RandomGroupPage = () => {
    return (
       <>
          <Dialog isOpen={open} onClose={onClose}>
-            <RandomResult randomResult={randomResult} onClose={onClose} onRandom={handleGenerate} />
+            <RandomResult
+               randomResult={randomResult}
+               onClose={onClose}
+               onRandom={handleGenerate}
+               onEdit={handleEdit}
+            />
          </Dialog>
          <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary">
             <div className="flex flex-col gap-4">
@@ -85,9 +93,10 @@ type ResultProps = {
    randomResult: Group;
    onClose: () => void;
    onRandom: () => void;
+   onEdit: () => void;
 };
 
-const RandomResult = ({ randomResult, onClose, onRandom }: ResultProps) => {
+const RandomResult = ({ randomResult, onClose, onRandom, onEdit }: ResultProps) => {
    return (
       <div className="w-[820px] h-[578px] flex flex-col gap-4 py-6 px-8 rounded-xl bg-white">
          <div className="flex flex-col gap-4">
@@ -133,7 +142,7 @@ const RandomResult = ({ randomResult, onClose, onRandom }: ResultProps) => {
             </button>
             <button
                className="flex items-center gap-2 border border-chinese-silver py-1 px-2 rounded-md"
-               onClick={onClose}
+               onClick={onEdit}
             >
                <i className="fa-solid fa-pen"></i>
                Edit
