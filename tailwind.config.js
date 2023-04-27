@@ -19,6 +19,29 @@ module.exports = {
             primary: "#EBEBEB",
             secondary: "#C9C9C9",
          },
+         animation: {
+            "zoom-in": "zoom-in 0.2s ease-in-out",
+            "zoom-out": "zoom-out 0.2s ease-in-out",
+            "fade-in": "fade-in 0.2s ease-out",
+         },
+         keyframes: {
+            "zoom-in": {
+               "0%": { transform: "scale(0)" },
+               "100%": { transform: "scale(1)" },
+            },
+            "zoom-out": {
+               "0%": { transform: "scale(1)" },
+               "100%": { transform: "scale(0)" },
+            },
+            "fade-in": {
+               "0%": { opacity: "0" },
+               "100%": { opacity: "1" },
+            },
+            "fade-out": {
+               "0%": { opacity: "1" },
+               "100%": { opacity: "0" },
+            },
+         },
       },
    },
    plugins: [],
