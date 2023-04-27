@@ -2,6 +2,14 @@
    "printWidth": 100,
    "tabWidth": 3,
    "semi": true,
-   "plugins": ["prettier-plugin-css-order", "prettier-plugin-tailwindcss"],
-   "pluginSearchDirs": false
+   "pluginSearchDirs": false,
+   "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+   "importOrderSeparation": true,
+   "importOrderSortSpecifiers": true,
+   "importOrderCaseInsensitive": true,
+   "plugins": [
+      "prettier-plugin-css-order",
+      "@trivago/prettier-plugin-sort-imports",
+      "prettier-plugin-tailwindcss"
+   ]
 }

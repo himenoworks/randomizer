@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import FooterSection from "./footer";
 import NavbarSection from "./navbar";
 

@@ -1,8 +1,8 @@
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from "react-router-dom";
+
 import LayoutWrapper from "../layout";
-//Pages
-import RandomGroupPage from "../pages/RandomGroup";
 import PageNotFound from "../pages/404";
+import RandomGroupPage from "../pages/RandomGroup";
 
 const router = createBrowserRouter([
    {
