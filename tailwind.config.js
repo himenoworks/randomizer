@@ -24,6 +24,7 @@ module.exports = {
             "zoom-out": "zoom-out 0.2s ease-in-out",
             "fade-in": "fade-in 0.2s ease-out",
             "fade-out": "fade-out 0.2s ease-out",
+            flip: "flip .5s ease-in-out",
          },
          keyframes: {
             "zoom-in": {
@@ -41,6 +42,10 @@ module.exports = {
             "fade-out": {
                "0%": { opacity: "1" },
                "100%": { opacity: "0" },
+            },
+            flip: {
+               "0%": { transform: "rotateY(0deg)" },
+               "100%": { transform: "rotateY(-180deg)" },
             },
          },
       },
