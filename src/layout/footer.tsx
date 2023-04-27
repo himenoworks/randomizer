@@ -4,11 +4,11 @@ const FooterSection = () => {
    const getCurrentYear = new Date().getFullYear();
 
    return (
-      <div className="h-full flex items-center justify-between text-xs text-primary tracking-[2px]">
-         <div className="h-full flex items-center">
+      <div className="flex h-full items-center justify-between text-xs tracking-[2px] text-primary">
+         <div className="flex h-full items-center">
             <p>© {getCurrentYear} HIMENOWORKS, All Rights Reserved</p>
          </div>
-         <div className="h-full flex items-center gap-4">
+         <div className="flex h-full items-center gap-4">
             <Link
                className="flex items-center gap-1.5"
                to="https://github.com/HIMENOWORKS/randomizer"

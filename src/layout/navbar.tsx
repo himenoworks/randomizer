@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const NavbarSection = () => {
    return (
-      <nav className="w-full h-14 flex items-center justify-between gap-4 px-10 text-primary">
+      <nav className="flex h-14 w-full items-center justify-between gap-4 px-10 text-primary">
          <div className="flex items-center">
-            <p className="text-xl font-medium mb-1">Randomizer</p>
+            <p className="mb-1 text-xl font-medium">Randomizer</p>
          </div>
          <div className="flex items-end gap-6">
             <Link to="/randomizer">Home</Link>

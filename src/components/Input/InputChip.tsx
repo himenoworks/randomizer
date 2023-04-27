@@ -50,7 +50,7 @@ const InputChip = ({ addChips, elementId, isClear }: ChipsProps) => {
       <div className="flex flex-wrap gap-3">
          {chips.map((chip) => (
             <span
-               className="w-fit h-7 flex items-center gap-2 pl-2 rounded-md bg-secondary capitalize"
+               className="flex h-7 w-fit items-center gap-2 rounded-md bg-secondary pl-2 capitalize"
                key={chip.id}
             >
                {chip.label}

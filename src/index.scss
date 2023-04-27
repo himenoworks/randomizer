@@ -7,9 +7,9 @@
 
 html,
 body {
-   @apply font-Barlow m-0 relative;
+   @apply relative m-0 font-Barlow;
 }
 
 i {
-   @apply text-xs mt-0.5;
+   @apply mt-0.5 text-xs;
 }
