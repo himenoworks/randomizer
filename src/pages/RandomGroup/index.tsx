@@ -14,11 +14,16 @@ const RandomGroupPage = () => {
    const [groups, setGroups] = useState<Chip[]>([]);
    const [open, setOpen] = useState<boolean>(false);
    const [isClear, setIsClear] = useState<boolean>(false);
+   const [isFlip, setIsFlip] = useState<boolean>(false);
    const handleGenerate = () => {
-      const groupNames = groups.map((group) => group.label);
-      const memberNames = members.map((member) => member.label);
-      setRandomResult(randomGroup(memberNames, groupNames));
+      setTimeout(() => {
+         const groupNames = groups.map((group) => group.label);
+         const memberNames = members.map((member) => member.label);
+         setRandomResult(randomGroup(memberNames, groupNames));
+      }, 250);
       setOpen(true);
+      setIsFlip(true);
+      setTimeout(() => setIsFlip(false), 500);
    };
    const handleDiscard = () => {
       setRandomResult({});
@@ -43,6 +48,7 @@ const RandomGroupPage = () => {
                onClose={onClose}
                onRandom={handleGenerate}
                onEdit={handleEdit}
+               isFlip={isFlip}
             />
          </Dialog>
          <div className="w-full h-full flex flex-col gap-4 rounded-2xl text-primary">
@@ -94,9 +100,12 @@ type ResultProps = {
    onClose: () => void;
    onRandom: () => void;
    onEdit: () => void;
+   isFlip?: boolean;
 };
 
-const RandomResult = ({ randomResult, onClose, onRandom, onEdit }: ResultProps) => {
+const RandomResult = ({ randomResult, onClose, onRandom, onEdit, isFlip }: ResultProps) => {
+   const flipAnimation = `${isFlip ? " animate-flip" : ""}`;
+
    return (
       <div className="w-[820px] h-[578px] flex flex-col gap-4 py-6 px-8 rounded-xl bg-white">
          <div className="flex flex-col gap-4">
@@ -112,8 +121,10 @@ const RandomResult = ({ randomResult, onClose, onRandom, onEdit }: ResultProps) 
             <div className="grid grid-cols-3 gap-8">
                {Object.keys(randomResult).map((groupName, index) => {
                   return (
-                     <div className="flex justify-center items-start" key={index}>
-                        <div className="w-full h-48 flex flex-col rounded-2xl p-0.5 text-primary capitalize bg-secondary">
+                     <div className={`flex justify-center items-start${flipAnimation}`} key={index}>
+                        <div
+                           className={`w-full h-48 flex flex-col rounded-2xl p-0.5 text-primary capitalize bg-secondary${flipAnimation}`}
+                        >
                            <p className="flex items-center gap-2 text-lg font-semibold py-1.5 px-3">
                               <i className="fa-solid fa-user-group"></i>
                               {groupName}
