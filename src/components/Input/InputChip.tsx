@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export interface Chip {
-   id: number;
-   label: string;
-}
+import { Chip } from "../../interface/chip";
 
 type ChipsProps = {
    addChips: (values: Chip[]) => void;
