@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import BaseButton from "../components/Button/BaseButton";
-import Dialog from "../components/Dialog/Dialog";
-import InputChip from "../components/Input/InputChip";
+import { BaseButton } from "../components/Button/BaseButton";
+import { Dialog } from "../components/Dialog/Dialog";
+import { InputChip } from "../components/Input/InputChip";
 import { randomGroup } from "../helper/random";
 import { Chip } from "../interface/chip";
 

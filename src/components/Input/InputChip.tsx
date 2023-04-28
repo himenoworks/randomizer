@@ -9,7 +9,7 @@ type Props = {
    placeholder?: string;
 };
 
-const InputChip = ({ addChips, elementId, isClear, placeholder }: Props) => {
+export const InputChip = ({ addChips, elementId, isClear, placeholder }: Props) => {
    const [chips, setChips] = useState<Chip[]>([]);
    const [inputValue, setInputValue] = useState("");
 
@@ -69,5 +69,3 @@ const InputChip = ({ addChips, elementId, isClear, placeholder }: Props) => {
       </div>
    );
 };
-
-export default InputChip;
