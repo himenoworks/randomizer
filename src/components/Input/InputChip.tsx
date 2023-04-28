@@ -55,7 +55,7 @@ const InputChip = ({ addChips, elementId, isClear, placeholder }: ChipsProps) =>
                key={chip.id}
             >
                {chip.label}
-               <button className="pr-2" onClick={() => handleDeleteChip(chip.id)}>
+               <button className="pr-2" tabIndex={-1} onClick={() => handleDeleteChip(chip.id)}>
                   <i className="fa-solid fa-xmark text-sm"></i>
                </button>
             </span>
