@@ -9,9 +9,10 @@ type ChipsProps = {
    addChips: (values: Chip[]) => void;
    elementId: string;
    isClear?: boolean;
+   placeholder?: string;
 };
 
-const InputChip = ({ addChips, elementId, isClear }: ChipsProps) => {
+const InputChip = ({ addChips, elementId, isClear, placeholder }: ChipsProps) => {
    const [chips, setChips] = useState<Chip[]>([]);
    const [inputValue, setInputValue] = useState("");
 
@@ -66,7 +67,7 @@ const InputChip = ({ addChips, elementId, isClear }: ChipsProps) => {
             value={inputValue}
             onKeyDown={handleInputKeyDown}
             onChange={handleInputChange}
-            placeholder="Add a Group Name..."
+            placeholder={placeholder}
          />
       </div>
    );

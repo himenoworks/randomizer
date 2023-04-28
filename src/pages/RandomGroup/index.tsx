@@ -69,7 +69,12 @@ const RandomGroupPage = () => {
                      className="h-[296px] overflow-y-auto rounded-lg border-2 border-chinese-silver p-3"
                      onClick={() => onFocus("input-group")}
                   >
-                     <InputChip elementId="input-group" addChips={setGroups} isClear={isClear} />
+                     <InputChip
+                        elementId="input-group"
+                        placeholder="Add a Group Name..."
+                        addChips={setGroups}
+                        isClear={isClear}
+                     />
                   </div>
                </div>
                <div className="flex h-full w-full flex-col gap-2">
@@ -80,7 +85,12 @@ const RandomGroupPage = () => {
                      className="h-[296px] overflow-y-auto rounded-lg border-2 border-chinese-silver p-3"
                      onClick={() => onFocus("input-member")}
                   >
-                     <InputChip elementId="input-member" addChips={setMembers} isClear={isClear} />
+                     <InputChip
+                        elementId="input-member"
+                        placeholder="Add a Member Name..."
+                        addChips={setMembers}
+                        isClear={isClear}
+                     />
                   </div>
                </div>
             </div>
