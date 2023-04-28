@@ -7,7 +7,6 @@ const NavbarSection = () => {
             <p className="mb-1 text-xl font-medium">Randomizer</p>
          </div>
          <div className="flex items-end gap-6">
-            <Link to="/randomizer">Home</Link>
             <Link to="/randomizer/group-generator">Group Generator</Link>
          </div>
       </nav>
