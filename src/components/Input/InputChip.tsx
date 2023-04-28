@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import { Chip } from "../../interface/chip";
 
-type ChipsProps = {
+type Props = {
    addChips: (values: Chip[]) => void;
    elementId: string;
    isClear?: boolean;
    placeholder?: string;
 };
 
-const InputChip = ({ addChips, elementId, isClear, placeholder }: ChipsProps) => {
+const InputChip = ({ addChips, elementId, isClear, placeholder }: Props) => {
    const [chips, setChips] = useState<Chip[]>([]);
    const [inputValue, setInputValue] = useState("");
 
