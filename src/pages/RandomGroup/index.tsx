@@ -155,20 +155,8 @@ const RandomResult = ({ randomResult, onClose, onRandom, onEdit, isFlip }: Resul
             </div>
          </div>
          <div className="flex items-center justify-center gap-3">
-            <button
-               className="flex items-center gap-2 rounded-md border border-chinese-silver px-2 py-1"
-               onClick={onRandom}
-            >
-               <i className="fa-solid fa-rotate-right"></i>
-               Generate
-            </button>
-            <button
-               className="flex items-center gap-2 rounded-md border border-chinese-silver px-2 py-1"
-               onClick={onEdit}
-            >
-               <i className="fa-solid fa-pen"></i>
-               Edit
-            </button>
+            <BaseButton icon="fa-solid fa-rotate-right" label="Generate" onClick={onRandom} />
+            <BaseButton icon="fa-solid fa-pen" label="Edit" onClick={onEdit} />
          </div>
       </div>
    );
