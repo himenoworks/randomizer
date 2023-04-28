@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from "react-router-dom";
 
-import LayoutWrapper from "../layout";
+import LayoutWrapper from "../Layout";
 import PageNotFound from "../pages/404";
 import RandomGroupPage from "../pages/RandomGroup";
 
