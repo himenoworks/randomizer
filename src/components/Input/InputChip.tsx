@@ -1,3 +1,5 @@
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 
 import { Chip } from "../../interface/chip";
@@ -53,7 +55,7 @@ export const InputChip = ({ addChips, elementId, isClear, placeholder }: Props) 
             >
                {chip.label}
                <button className="pr-2" tabIndex={-1} onClick={() => handleDeleteChip(chip.id)}>
-                  <i className="fa-solid fa-xmark text-sm"></i>
+                  <FontAwesomeIcon icon={faXmark} />
                </button>
             </span>
          ))}

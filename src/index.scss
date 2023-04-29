@@ -10,6 +10,7 @@ body {
    @apply relative m-0 font-Barlow;
 }
 
-i {
-   @apply mt-0.5 text-xs;
+//fontawesome global style
+svg.svg-inline--fa {
+   @apply mt-0.5;
 }

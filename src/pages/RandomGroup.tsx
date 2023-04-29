@@ -1,3 +1,12 @@
+import {
+   faEye,
+   faPen,
+   faRotateRight,
+   faShuffle,
+   faTrashCan,
+   faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 import { BaseButton } from "../components/Button/BaseButton";
@@ -63,9 +72,7 @@ const RandomGroupPage = () => {
 
             <div className="flex w-full gap-10">
                <div className="flex h-full w-full flex-col gap-2">
-                  <h2 className="flex items-center gap-2 text-xl">
-                     <i className="fa-solid fa-user-group"></i>Group
-                  </h2>
+                  <h2 className="flex items-center gap-2 text-xl">Group</h2>
                   <div
                      className="h-[296px] overflow-y-auto rounded-lg border-2 border-chinese-silver p-3"
                      onClick={() => onFocus("input-group")}
@@ -79,9 +86,7 @@ const RandomGroupPage = () => {
                   </div>
                </div>
                <div className="flex h-full w-full flex-col gap-2">
-                  <h2 className="flex items-center gap-2 text-xl">
-                     <i className="fa-solid fa-user"></i>Member
-                  </h2>
+                  <h2 className="flex items-center gap-2 text-xl">Member</h2>
                   <div
                      className="h-[296px] overflow-y-auto rounded-lg border-2 border-chinese-silver p-3"
                      onClick={() => onFocus("input-member")}
@@ -96,9 +101,9 @@ const RandomGroupPage = () => {
                </div>
             </div>
             <div className="mt-7 flex justify-center gap-3">
-               <BaseButton icon="fa-solid fa-shuffle" label="Generate" onClick={handleGenerate} />
-               <BaseButton icon="fa-solid fa-eye" label="View Result" onClick={onView} />
-               <BaseButton icon="fa-solid fa-trash-can" label="Discard" onClick={handleDiscard} />
+               <BaseButton icon={faShuffle} label="Generate" onClick={handleGenerate} />
+               <BaseButton icon={faEye} label="View Result" onClick={onView} />
+               <BaseButton icon={faTrashCan} label="Discard" onClick={handleDiscard} />
             </div>
          </div>
       </>
@@ -124,7 +129,7 @@ const RandomResult = ({ randomResult, onClose, onRandom, onEdit, isFlip }: Resul
             <span className="flex items-center justify-between">
                <h1 className="text-xl font-medium">Result</h1>
                <button className="flex items-center justify-center" onClick={onClose}>
-                  <i className="fa-solid fa-xmark text-lg"></i>
+                  <FontAwesomeIcon icon={faXmark} size="lg" />
                </button>
             </span>
             <hr className="border-lightgray" />
@@ -138,13 +143,11 @@ const RandomResult = ({ randomResult, onClose, onRandom, onEdit, isFlip }: Resul
                            className={`flex h-48 w-full flex-col rounded-2xl p-0.5 capitalize text-primary bg-secondary${flipAnimation}`}
                         >
                            <p className="flex items-center gap-2 px-3 py-1.5 text-lg font-semibold">
-                              <i className="fa-solid fa-user-group"></i>
                               {groupName}
                            </p>
                            <div className="flex h-full flex-col gap-2 overflow-y-scroll rounded-[14px] rounded-t-none bg-primary p-2 px-3 text-base font-medium">
                               {randomResult[groupName].map((member, index) => (
                                  <p className="flex items-center gap-3" key={index}>
-                                    <i className="fa-solid fa-user"></i>
                                     {member}
                                  </p>
                               ))}
@@ -156,8 +159,8 @@ const RandomResult = ({ randomResult, onClose, onRandom, onEdit, isFlip }: Resul
             </div>
          </div>
          <div className="flex items-center justify-center gap-3">
-            <BaseButton icon="fa-solid fa-rotate-right" label="Generate" onClick={onRandom} />
-            <BaseButton icon="fa-solid fa-pen" label="Edit" onClick={onEdit} />
+            <BaseButton icon={faRotateRight} label="Generate" onClick={onRandom} />
+            <BaseButton icon={faPen} label="Edit" onClick={onEdit} />
          </div>
       </div>
    );
