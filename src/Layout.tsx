@@ -1,3 +1,6 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faCodeBranch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
@@ -33,11 +36,11 @@ const LayoutWrapper: FC<LayoutProps> = ({ children }) => {
                         to="https://github.com/HIMENOWORKS/randomizer"
                         target="_blank"
                      >
-                        <i className="fa-brands fa-github text-base"></i>
+                        <FontAwesomeIcon icon={faGithub} className="!mt-0 text-base" />
                         Github
                      </Link>
                      <div className="flex items-center gap-1.5 text-sm">
-                        <i className="fa-solid fa-code-branch text-xs"></i>
+                        <FontAwesomeIcon icon={faCodeBranch} className="text-xs" />
                         v1.0.0
                      </div>
                   </div>
