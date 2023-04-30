@@ -2,22 +2,22 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 
-import { Chip } from "../../interface/chip";
+import { ChipProps } from "../../interface/chip";
 
 type Props = {
-   addChips: (values: Chip[]) => void;
+   addChips: (values: ChipProps[]) => void;
    elementId: string;
    isClear?: boolean;
    placeholder?: string;
 };
 
 export const InputChip = ({ addChips, elementId, isClear, placeholder }: Props) => {
-   const [chips, setChips] = useState<Chip[]>([]);
+   const [chips, setChips] = useState<ChipProps[]>([]);
    const [inputValue, setInputValue] = useState("");
 
    const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "Enter" && inputValue.trim()) {
-         const newChip: Chip = { id: Date.now(), label: inputValue.trim() };
+         const newChip: ChipProps = { id: Date.now(), label: inputValue.trim() };
          setChips([...chips, newChip]);
          setInputValue("");
          event.preventDefault();

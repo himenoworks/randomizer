@@ -13,7 +13,7 @@ import { BaseButton } from "../components/Button/BaseButton";
 import { Dialog } from "../components/Dialog/Dialog";
 import { InputChip } from "../components/Input/InputChip";
 import { randomGroup } from "../helper/random";
-import { Chip } from "../interface/chip";
+import { ChipProps } from "../interface/chip";
 
 export type Group = {
    [key: string]: string[];
@@ -21,8 +21,8 @@ export type Group = {
 
 const RandomGroupPage = () => {
    const [randomResult, setRandomResult] = useState<Group>({});
-   const [members, setMembers] = useState<Chip[]>([]);
-   const [groups, setGroups] = useState<Chip[]>([]);
+   const [members, setMembers] = useState<ChipProps[]>([]);
+   const [groups, setGroups] = useState<ChipProps[]>([]);
    const [open, setOpen] = useState<boolean>(false);
    const [isClear, setIsClear] = useState<boolean>(false);
    const [isFlip, setIsFlip] = useState<boolean>(false);
