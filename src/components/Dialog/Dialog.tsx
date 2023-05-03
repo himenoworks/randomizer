@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 type DialogProps = {
    isOpen: boolean;
@@ -7,20 +7,37 @@ type DialogProps = {
 };
 
 export const Dialog = ({ isOpen, children, onClose }: DialogProps) => {
-   const handleClickOutside = (event: MouseEvent) => {
-      if ((event.target as Node) === document.getElementById("outer-dialog")) {
-         onClose();
-      }
-   };
+   const handleKeyDown = useCallback(
+      (event: KeyboardEvent) => {
+         if (event.key === "Escape") {
+            onClose();
+         }
+      },
+      [onClose]
+   );
 
-   const registerClickOutsideListener = () => {
+   const handleClickOutside = useCallback(
+      (event: MouseEvent) => {
+         if ((event.target as Node) === document.getElementById("outer-dialog")) {
+            onClose();
+         }
+      },
+      [onClose]
+   );
+
+   useEffect(() => {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => {
+         document.removeEventListener("keydown", handleKeyDown);
+      };
+   }, [handleKeyDown]);
+
+   useEffect(() => {
       document.addEventListener("mousedown", handleClickOutside);
       return () => {
          document.removeEventListener("mousedown", handleClickOutside);
       };
-   };
-
-   useEffect(registerClickOutsideListener);
+   }, [handleClickOutside]);
 
    return (
       <dialog className="absolute left-0 top-0 h-screen w-screen bg-transparent p-0" open={isOpen}>
