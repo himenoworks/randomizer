@@ -14,10 +14,12 @@ module.exports = {
          textColor: {
             primary: "#404040",
             secondary: "#7D8590",
+            disabled: "#707070",
          },
          backgroundColor: {
             primary: "#EBEBEB",
             secondary: "#C9C9C9",
+            disabled: "#E4E4E4",
          },
          animation: {
             "zoom-in": "zoom-in 0.2s ease-in-out",
