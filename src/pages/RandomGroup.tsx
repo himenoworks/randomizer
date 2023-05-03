@@ -41,6 +41,9 @@ const RandomGroupPage = () => {
    const [isFlip, setIsFlip] = useState<boolean>(false);
 
    const handleGenerate = () => {
+      const emptyGroups: Group = {};
+      groups.forEach((group) => (emptyGroups[group.label] = []));
+      setRandomResult(emptyGroups);
       setTimeout(() => {
          const groupNames = groups.map((group) => group.label);
          const memberNames = members.map((member) => member.label);
