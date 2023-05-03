@@ -9,10 +9,11 @@ type Props = {
    elementId: string;
    isClear?: boolean;
    placeholder?: string;
+   initialChips?: ChipProps[];
 };
 
-export const InputChip = ({ addChips, elementId, isClear, placeholder }: Props) => {
-   const [chips, setChips] = useState<ChipProps[]>([]);
+export const InputChip = ({ addChips, elementId, isClear, placeholder, initialChips }: Props) => {
+   const [chips, setChips] = useState<ChipProps[]>(initialChips || []);
    const [inputValue, setInputValue] = useState("");
 
    const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -22,18 +23,15 @@ export const InputChip = ({ addChips, elementId, isClear, placeholder }: Props) 
          setInputValue("");
          event.preventDefault();
       } else if (event.key === "Backspace" && !inputValue) {
-         setChips(chips.slice(0, -1));
+         setChips((prevChips) => prevChips.slice(0, -1));
       }
    };
 
-   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) =>
       setInputValue(event.target.value);
-   };
 
-   const handleDeleteChip = (id: number) => {
-      const updatedChips = chips.filter((chip) => chip.id !== id);
-      setChips(updatedChips);
-   };
+   const handleDeleteChip = (id: number) =>
+      setChips((prevChips) => prevChips.filter((chip) => chip.id !== id));
 
    useEffect(() => {
       addChips(chips);

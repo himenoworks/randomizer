@@ -19,6 +19,19 @@ export type Group = {
    [key: string]: string[];
 };
 
+const initialMembers: ChipProps[] = [
+   { id: 1, label: "John" },
+   { id: 2, label: "Jane" },
+   { id: 3, label: "Doe" },
+   { id: 4, label: "Foo" },
+   { id: 5, label: "Bar" },
+];
+const initialGroups: ChipProps[] = [
+   { id: 6, label: "Gold" },
+   { id: 7, label: "Silver" },
+   { id: 8, label: "Bronze" },
+];
+
 const RandomGroupPage = () => {
    const [randomResult, setRandomResult] = useState<Group>({});
    const [members, setMembers] = useState<ChipProps[]>([]);
@@ -103,6 +116,7 @@ const RandomGroupPage = () => {
                         placeholder="Add a Group Name..."
                         addChips={setGroups}
                         isClear={isClear}
+                        initialChips={initialGroups}
                      />
                   </div>
                </div>
@@ -117,6 +131,7 @@ const RandomGroupPage = () => {
                         placeholder="Add a Member Name..."
                         addChips={setMembers}
                         isClear={isClear}
+                        initialChips={initialMembers}
                      />
                   </div>
                </div>
