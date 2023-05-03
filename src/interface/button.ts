@@ -1,7 +1,8 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 export type ButtonProps = {
-   icon?: IconDefinition;
    label: string;
+   icon?: IconDefinition;
+   isDisabled?: boolean;
    onClick?: () => void;
 };

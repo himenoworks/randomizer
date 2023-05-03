@@ -122,8 +122,18 @@ const RandomGroupPage = () => {
                </div>
             </div>
             <div className="mt-7 flex justify-center gap-3">
-               <BaseButton icon={faShuffle} label="Generate" onClick={handleGenerate} />
-               <BaseButton icon={faEye} label="View Result" onClick={onView} />
+               <BaseButton
+                  icon={faShuffle}
+                  label="Generate"
+                  onClick={handleGenerate}
+                  isDisabled={members.length === 0 || groups.length === 0}
+               />
+               <BaseButton
+                  icon={faEye}
+                  label="View Result"
+                  onClick={onView}
+                  isDisabled={Object.keys(randomResult).length === 0}
+               />
                <BaseButton icon={faTrashCan} label="Discard" onClick={handleDiscard} />
             </div>
          </div>
