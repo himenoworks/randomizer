@@ -37,6 +37,7 @@ const RandomGroupPage = () => {
       setIsFlip(true);
       setTimeout(() => setIsFlip(false), 500);
    };
+
    const handleDiscard = () => {
       setRandomResult({});
       setMembers([]);
@@ -44,25 +45,32 @@ const RandomGroupPage = () => {
       setIsClear(true);
       setTimeout(() => setIsClear(false), 100);
    };
+
    const handleEdit = () => {
       onClose();
       onFocus("input-group");
    };
+
    const onClose = () => setIsOpen(false);
+
    const onView = () => setIsOpen(true);
+
    const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
+
    const handleClickOutside = (event: MouseEvent) => {
       if ((event.target as Node) === document.getElementById("outer-dialog")) {
          onClose();
       }
    };
 
-   useEffect(() => {
+   const registerClickOutsideListener = () => {
       document.addEventListener("mousedown", handleClickOutside);
       return () => {
          document.removeEventListener("mousedown", handleClickOutside);
       };
-   });
+   };
+
+   useEffect(registerClickOutsideListener);
 
    return (
       <>
