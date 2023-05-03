@@ -23,7 +23,7 @@ const RandomGroupPage = () => {
    const [randomResult, setRandomResult] = useState<Group>({});
    const [members, setMembers] = useState<ChipProps[]>([]);
    const [groups, setGroups] = useState<ChipProps[]>([]);
-   const [open, setOpen] = useState<boolean>(false);
+   const [isOpen, setIsOpen] = useState<boolean>(false);
    const [isClear, setIsClear] = useState<boolean>(false);
    const [isFlip, setIsFlip] = useState<boolean>(false);
 
@@ -33,7 +33,7 @@ const RandomGroupPage = () => {
          const memberNames = members.map((member) => member.label);
          setRandomResult(randomGroup(memberNames, groupNames));
       }, 250);
-      setOpen(true);
+      setIsOpen(true);
       setIsFlip(true);
       setTimeout(() => setIsFlip(false), 500);
    };
@@ -48,8 +48,8 @@ const RandomGroupPage = () => {
       onClose();
       onFocus("input-group");
    };
-   const onClose = () => setOpen(false);
-   const onView = () => setOpen(true);
+   const onClose = () => setIsOpen(false);
+   const onView = () => setIsOpen(true);
    const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
    const handleClickOutside = (event: MouseEvent) => {
       if ((event.target as Node) === document.getElementById("outer-dialog")) {
@@ -66,7 +66,7 @@ const RandomGroupPage = () => {
 
    return (
       <>
-         <Dialog isOpen={open}>
+         <Dialog isOpen={isOpen}>
             <RandomResult
                randomResult={randomResult}
                onClose={onClose}
