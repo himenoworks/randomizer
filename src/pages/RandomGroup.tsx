@@ -19,19 +19,6 @@ export type Group = {
    [key: string]: string[];
 };
 
-const initialMembers: ChipProps[] = [
-   { id: 1, label: "John" },
-   { id: 2, label: "Jane" },
-   { id: 3, label: "Doe" },
-   { id: 4, label: "Foo" },
-   { id: 5, label: "Bar" },
-];
-const initialGroups: ChipProps[] = [
-   { id: 6, label: "Gold" },
-   { id: 7, label: "Silver" },
-   { id: 8, label: "Bronze" },
-];
-
 const RandomGroupPage = () => {
    const [randomResult, setRandomResult] = useState<Group>({});
    const [members, setMembers] = useState<ChipProps[]>([]);
@@ -39,6 +26,8 @@ const RandomGroupPage = () => {
    const [isOpen, setIsOpen] = useState<boolean>(false);
    const [isClear, setIsClear] = useState<boolean>(false);
    const [isFlip, setIsFlip] = useState<boolean>(false);
+   const initialMembers: ChipProps[] = JSON.parse(localStorage.getItem("members") || "");
+   const initialGroups: ChipProps[] = JSON.parse(localStorage.getItem("groups") || "");
 
    const handleGenerate = () => {
       const emptyGroups: Group = {};
@@ -102,7 +91,10 @@ const RandomGroupPage = () => {
                      <InputChip
                         elementId="input-group"
                         placeholder="Add a Group Name..."
-                        addChips={setGroups}
+                        addChips={(groups) => {
+                           setGroups(groups);
+                           localStorage.setItem("groups", JSON.stringify(groups));
+                        }}
                         isClear={isClear}
                         initialChips={initialGroups}
                      />
@@ -117,7 +109,10 @@ const RandomGroupPage = () => {
                      <InputChip
                         elementId="input-member"
                         placeholder="Add a Member Name..."
-                        addChips={setMembers}
+                        addChips={(members) => {
+                           setMembers(members);
+                           localStorage.setItem("members", JSON.stringify(members));
+                        }}
                         isClear={isClear}
                         initialChips={initialMembers}
                      />
