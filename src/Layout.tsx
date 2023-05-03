@@ -39,10 +39,14 @@ const LayoutWrapper: FC<LayoutProps> = ({ children }) => {
                         <FontAwesomeIcon icon={faGithub} className="!mt-0 text-base" />
                         Github
                      </Link>
-                     <div className="flex items-center gap-1.5 text-sm">
-                        <FontAwesomeIcon icon={faCodeBranch} className="text-xs" />
-                        v1.0.0
-                     </div>
+                     <Link
+                        className="flex items-center gap-1.5"
+                        to="https://github.com/HIMENOWORKS/randomizer/releases"
+                        target="_blank"
+                     >
+                        <FontAwesomeIcon icon={faCodeBranch} className="text-sm" />
+                        v1.1.0
+                     </Link>
                   </div>
                </div>
             </footer>
