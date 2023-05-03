@@ -26,8 +26,8 @@ const RandomGroupPage = () => {
    const [isOpen, setIsOpen] = useState<boolean>(false);
    const [isClear, setIsClear] = useState<boolean>(false);
    const [isFlip, setIsFlip] = useState<boolean>(false);
-   const initialMembers: ChipProps[] = JSON.parse(localStorage.getItem("members") || "");
-   const initialGroups: ChipProps[] = JSON.parse(localStorage.getItem("groups") || "");
+   const initialMembers: ChipProps[] = JSON.parse(localStorage.getItem("members") || "[]");
+   const initialGroups: ChipProps[] = JSON.parse(localStorage.getItem("groups") || "[]");
 
    const handleGenerate = () => {
       const emptyGroups: Group = {};
