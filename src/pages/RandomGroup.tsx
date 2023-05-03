@@ -7,7 +7,7 @@ import {
    faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { BaseButton } from "../components/Button/BaseButton";
 import { Dialog } from "../components/Dialog/Dialog";
@@ -26,6 +26,7 @@ const RandomGroupPage = () => {
    const [open, setOpen] = useState<boolean>(false);
    const [isClear, setIsClear] = useState<boolean>(false);
    const [isFlip, setIsFlip] = useState<boolean>(false);
+
    const handleGenerate = () => {
       setTimeout(() => {
          const groupNames = groups.map((group) => group.label);
@@ -50,10 +51,22 @@ const RandomGroupPage = () => {
    const onClose = () => setOpen(false);
    const onView = () => setOpen(true);
    const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
+   const handleClickOutside = (event: MouseEvent) => {
+      if ((event.target as Node) === document.getElementById("outer-dialog")) {
+         onClose();
+      }
+   };
+
+   useEffect(() => {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+         document.removeEventListener("mousedown", handleClickOutside);
+      };
+   });
 
    return (
       <>
-         <Dialog isOpen={open} onClose={onClose}>
+         <Dialog isOpen={open}>
             <RandomResult
                randomResult={randomResult}
                onClose={onClose}
