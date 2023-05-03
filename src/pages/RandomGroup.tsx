@@ -85,7 +85,7 @@ const RandomGroupPage = () => {
                <div className="flex h-full w-full flex-col gap-2">
                   <h2 className="flex items-center gap-2 text-xl">Group</h2>
                   <div
-                     className="h-[296px] cursor-pointer overflow-y-auto rounded-lg border-2 border-chinese-silver p-3"
+                     className="h-[296px] cursor-text overflow-y-auto rounded-lg border-2 border-chinese-silver p-3"
                      onClick={() => onFocus("input-group")}
                   >
                      <InputChip
@@ -103,7 +103,7 @@ const RandomGroupPage = () => {
                <div className="flex h-full w-full flex-col gap-2">
                   <h2 className="flex items-center gap-2 text-xl">Member</h2>
                   <div
-                     className="h-[296px] cursor-pointer overflow-y-auto rounded-lg border-2 border-chinese-silver p-3"
+                     className="h-[296px] cursor-text overflow-y-auto rounded-lg border-2 border-chinese-silver p-3"
                      onClick={() => onFocus("input-member")}
                   >
                      <InputChip
