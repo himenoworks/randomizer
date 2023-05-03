@@ -7,7 +7,7 @@ import {
    faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { BaseButton } from "../components/Button/BaseButton";
 import { Dialog } from "../components/Dialog/Dialog";
@@ -73,24 +73,9 @@ const RandomGroupPage = () => {
 
    const onFocus = (elementId: string) => document.getElementById(elementId)?.focus();
 
-   const handleClickOutside = (event: MouseEvent) => {
-      if ((event.target as Node) === document.getElementById("outer-dialog")) {
-         onClose();
-      }
-   };
-
-   const registerClickOutsideListener = () => {
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => {
-         document.removeEventListener("mousedown", handleClickOutside);
-      };
-   };
-
-   useEffect(registerClickOutsideListener);
-
    return (
       <>
-         <Dialog isOpen={isOpen}>
+         <Dialog isOpen={isOpen} onClose={onClose}>
             <RandomResult
                randomResult={randomResult}
                onClose={onClose}
