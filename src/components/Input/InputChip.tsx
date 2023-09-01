@@ -46,13 +46,18 @@ export const InputChip = ({ addChips, elementId, isClear, placeholder, initialCh
 
    return (
       <div className="flex flex-wrap gap-3">
-         {chips.map((chip) => (
+         {chips.map((chip, index) => (
             <span
                className="flex h-7 w-fit cursor-default items-center gap-2 rounded-md bg-secondary pl-2 capitalize"
                key={chip.id}
             >
                {chip.label}
-               <button className="pr-2" tabIndex={-1} onClick={() => handleDeleteChip(chip.id)}>
+               <button
+                  className="pr-2"
+                  key={index}
+                  tabIndex={-1}
+                  onClick={() => handleDeleteChip(chip.id)}
+               >
                   <FontAwesomeIcon icon={faXmark} />
                </button>
             </span>
